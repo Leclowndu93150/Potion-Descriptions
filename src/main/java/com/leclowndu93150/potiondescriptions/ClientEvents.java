@@ -28,9 +28,7 @@ public class ClientEvents {
                 ResourceLocation potion = ResourceLocation.parse(potionContents.potion().get().getRegisteredName());
                 String potionEffect = potion.getPath();
                 String potionNameSpace = potion.getNamespace();
-                if(potionEffect.contains("long_")) {
-                    potionEffect = potionEffect.replace("long_", "");
-                }
+                potionEffect = potionEffect.replace("long_", "");
                 event.getToolTip().add(Component.translatable("effect"+"."+potionNameSpace+"."+potionEffect+"."+"description").withStyle(ChatFormatting.GRAY));
             }else {
                 event.getToolTip().add(Component.literal("Press ").withStyle(ChatFormatting.GRAY).append(Component.literal("Shift").withStyle(ChatFormatting.YELLOW)).append(Component.literal(" for potion description").withStyle(ChatFormatting.GRAY)).withStyle(ChatFormatting.ITALIC));
